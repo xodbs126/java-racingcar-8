@@ -58,11 +58,11 @@ public class RacingGame {
 
         for (Participant participant : participants) {
             Integer randomNumber = randomNumberGenerator.generateRandomNumber();
-            checkRole(participant,randomNumber);
+            checkRole(participant, randomNumber);
         }
     }
 
-    private void checkRole(Participant participant,Integer randomNumber) {
+    private void checkRole(Participant participant, Integer randomNumber) {
         for (GameRole gameRole : gameRoles) {
             gameRole.movePosition(participant, randomNumber);
         }

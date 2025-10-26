@@ -2,7 +2,7 @@ package racingcar.role;
 
 import racingcar.domain.Participant;
 
-public class RandomNumberRole implements GameRole{
+public class RandomNumberRole implements GameRole {
 
     private static final int MOVE_ROLE = 4;
     private static final int MOVE_INTERVAL = 1;

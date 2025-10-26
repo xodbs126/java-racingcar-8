@@ -10,7 +10,7 @@ public class Participant {
     }
 
     public void move(Integer interval) {
-        this.carPosition+=interval;
+        this.carPosition += interval;
     }
 
     public String getName() {

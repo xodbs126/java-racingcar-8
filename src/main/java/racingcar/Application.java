@@ -20,7 +20,7 @@ public class Application {
         NullNameValidator nullNameValidator = new NullNameValidator();
         NameLengthValidator nameLengthValidator = new NameLengthValidator();
 
-        InputView inputView = new InputView(countRangeValidator,nullNameValidator);
+        InputView inputView = new InputView(countRangeValidator, nullNameValidator);
         OutputView outputView = new OutputView();
 
         List<NameValidator> nameValidators = List.of(nullNameValidator, nameLengthValidator);
@@ -31,7 +31,7 @@ public class Application {
         RandomNumberRole randomNumberRole = new RandomNumberRole();
         List<GameRole> gameRoles = List.of(randomNumberRole);
 
-        RacingGame racingGame = new RacingGame(participantGenerater, randomNumberGenerator, outputView,gameRoles);
+        RacingGame racingGame = new RacingGame(participantGenerater, randomNumberGenerator, outputView, gameRoles);
         RacingGameController racingGameController = new RacingGameController(inputView, outputView, racingGame);
 
         racingGameController.play();

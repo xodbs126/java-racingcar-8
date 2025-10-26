@@ -1,7 +1,6 @@
 package racingcar.view;
 
 import java.util.List;
-import racingcar.domain.Participant;
 import racingcar.dto.RacingGameProcessDto;
 import racingcar.dto.WinnerDto;
 
