@@ -8,6 +8,10 @@ import racingcar.dto.WinnerDto;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
+/***
+ * RacingGame을 관리하는 컨트롤러 RacingGameController
+ * 사용자에게 입력과 게임 진행, 결과를 반환
+ */
 public class RacingGameController {
 
     private final InputView inputView;

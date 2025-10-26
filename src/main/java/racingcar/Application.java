@@ -16,25 +16,33 @@ import racingcar.view.OutputView;
 
 public class Application {
     public static void main(String[] args) {
+        /***
+         * 각 Validator 객체 정의
+         */
         CountRangeValidator countRangeValidator = new CountRangeValidator();
         NullNameValidator nullNameValidator = new NullNameValidator();
         NameLengthValidator nameLengthValidator = new NameLengthValidator();
 
+        /**
+         * View 객체 의존성 주입
+         */
         InputView inputView = new InputView(countRangeValidator, nullNameValidator);
         OutputView outputView = new OutputView();
 
         List<NameValidator> nameValidators = List.of(nullNameValidator, nameLengthValidator);
 
-        ParticipantGenerater participantGenerater = new ParticipantGenerater(nameValidators);
-        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
-
+        /***
+         * Generator,RacingGame,컨트롤러에 필요한 객체 정의 및 주입
+         */
         RandomNumberRole randomNumberRole = new RandomNumberRole();
         List<GameRole> gameRoles = List.of(randomNumberRole);
+        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 
+        ParticipantGenerater participantGenerater = new ParticipantGenerater(nameValidators);
         RacingGame racingGame = new RacingGame(participantGenerater, randomNumberGenerator, outputView, gameRoles);
         RacingGameController racingGameController = new RacingGameController(inputView, outputView, racingGame);
 
-        racingGameController.play();
+        racingGameController.play(); // 애플리케이션 실행
 
     }
 }

@@ -2,6 +2,9 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+/***
+ * 랜덤 숫자를 뽑는 객체
+ */
 public class RandomNumberGenerator {
 
     private static final int RANDOM_NUMBER_START = 0;
