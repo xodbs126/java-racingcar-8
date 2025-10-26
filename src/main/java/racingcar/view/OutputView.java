@@ -2,6 +2,7 @@ package racingcar.view;
 
 import java.util.List;
 import racingcar.domain.Participant;
+import racingcar.dto.RacingGameProcessDto;
 import racingcar.dto.WinnerDto;
 
 public class OutputView {
@@ -14,9 +15,9 @@ public class OutputView {
         System.out.println("최종 우승자 : " + winnerString);
     }
 
-    public void printProcess(List<Participant> participants) {
-        for (Participant participant : participants) {
-            System.out.println(participant.getName() + " : " + "-".repeat(participant.getCarPosition()));
+    public void printProcess(List<RacingGameProcessDto> participants) {
+        for (RacingGameProcessDto participant : participants) {
+            System.out.println(participant.name() + " : " + "-".repeat(participant.carPosition()));
         }
         System.out.println();
     }
