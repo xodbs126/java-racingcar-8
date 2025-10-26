@@ -4,12 +4,25 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.validator.name.NameLengthValidator;
+import racingcar.validator.name.NameValidator;
+import racingcar.validator.name.NullNameValidator;
 
 class ParticipantGeneraterTest {
 
-    private final ParticipantGenerater generater = new ParticipantGenerater();
+    private ParticipantGenerater generater;
+    private List<NameValidator> nameValidators;
+    @BeforeEach
+    void setUp(){
+        NameLengthValidator nameLengthValidator = new NameLengthValidator();
+        NullNameValidator nullNameValidator = new NullNameValidator();
+        nameValidators = List.of(nameLengthValidator, nullNameValidator);
+         generater = new ParticipantGenerater(nameValidators);
+    }
+
 
     @Test
     @DisplayName("사용자 입력을 통해 참가자들 Participant을 생성한다.")

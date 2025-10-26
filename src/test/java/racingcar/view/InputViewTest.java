@@ -11,8 +11,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.dto.RacingGameDto;
-import racingcar.validator.input.CountRangeValidator;
-import racingcar.validator.input.NullNameValidator;
+import racingcar.validator.count.CountRangeValidator;
+import racingcar.validator.name.NullNameValidator;
 
 class InputViewTest {
 

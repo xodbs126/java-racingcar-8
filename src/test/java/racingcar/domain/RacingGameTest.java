@@ -5,6 +5,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.dto.RacingGameDto;
+import racingcar.role.GameRole;
+import racingcar.role.RandomNumberRole;
+import racingcar.validator.name.NameLengthValidator;
+import racingcar.validator.name.NullNameValidator;
 import racingcar.view.OutputView;
 
 import java.util.List;
@@ -22,13 +26,18 @@ class RacingGameTest extends NsTest {
     private OutputView outputView;
     private ParticipantGenerater participantGenerater;
     private RandomNumberGenerator randomNumberGenerator;
+    private List<GameRole> gameRoles;
 
     @BeforeEach
     void setUp() {
         outputView = new OutputView();
-        participantGenerater = new ParticipantGenerater();
+        NameLengthValidator nameLengthValidator = new NameLengthValidator();
+        NullNameValidator nullNameValidator = new NullNameValidator();
+        participantGenerater = new ParticipantGenerater(List.of(nameLengthValidator,nullNameValidator));
         randomNumberGenerator = new RandomNumberGenerator();
-        racingGame = new RacingGame(participantGenerater, randomNumberGenerator, outputView);
+        RandomNumberRole randomNumberRole = new RandomNumberRole();
+        gameRoles = List.of(randomNumberRole);
+        racingGame = new RacingGame(participantGenerater, randomNumberGenerator, outputView,gameRoles);
     }
 
     @Test
