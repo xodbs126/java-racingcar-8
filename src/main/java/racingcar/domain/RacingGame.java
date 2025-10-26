@@ -3,6 +3,7 @@ package racingcar.domain;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.dto.RacingGameDto;
+import racingcar.dto.RacingGameProcessDto;
 import racingcar.view.OutputView;
 
 public class RacingGame {
@@ -24,7 +25,7 @@ public class RacingGame {
         int count = racingGameDto.count();
         for (int i = 0; i < count; i++) {
             gameProcess(participants);
-            outputView.printProcess(participants);
+            outputView.printProcess(RacingGameProcessDto.from(participants));
         }
 
         List<Participant> winnerList = getWinners(participants);
