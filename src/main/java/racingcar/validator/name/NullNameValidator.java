@@ -1,4 +1,4 @@
-package racingcar.validator.input;
+package racingcar.validator.name;
 
 public class NullNameValidator implements NameValidator {
     @Override

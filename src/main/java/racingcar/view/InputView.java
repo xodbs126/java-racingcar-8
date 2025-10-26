@@ -3,8 +3,8 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.dto.RacingGameDto;
-import racingcar.validator.input.CountValidator;
-import racingcar.validator.input.NameValidator;
+import racingcar.validator.count.CountValidator;
+import racingcar.validator.name.NameValidator;
 
 public class InputView {
 
