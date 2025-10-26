@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.dto.RacingGameDto;
 import racingcar.dto.RacingGameProcessDto;
+import racingcar.role.GameRole;
 import racingcar.view.OutputView;
 
 public class RacingGame {
@@ -11,12 +12,14 @@ public class RacingGame {
     private final ParticipantGenerater participantGenerater;
     private final RandomNumberGenerator randomNumberGenerator;
     private final OutputView outputView;
+    private final List<GameRole> gameRoles;
 
     public RacingGame(ParticipantGenerater participantGenerater, RandomNumberGenerator randomNumberGenerator,
-                      OutputView outputView) {
+                      OutputView outputView, List<GameRole> gameRoles) {
         this.participantGenerater = participantGenerater;
         this.randomNumberGenerator = randomNumberGenerator;
         this.outputView = outputView;
+        this.gameRoles = gameRoles;
     }
 
     public List<Participant> play(RacingGameDto racingGameDto) {
@@ -55,9 +58,14 @@ public class RacingGame {
 
         for (Participant participant : participants) {
             Integer randomNumber = randomNumberGenerator.generateRandomNumber();
-            participant.move(randomNumber);
+            checkRole(participant,randomNumber);
         }
+    }
 
+    private void checkRole(Participant participant,Integer randomNumber) {
+        for (GameRole gameRole : gameRoles) {
+            gameRole.movePosition(participant, randomNumber);
+        }
     }
 
     private List<Participant> generateParticipants(RacingGameDto racingGameDto) {
