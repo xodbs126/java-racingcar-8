@@ -1,4 +1,4 @@
-package racingcar.validator.input;
+package racingcar.validator.count;
 
 public interface CountValidator {
 
