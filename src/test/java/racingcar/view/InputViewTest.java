@@ -7,6 +7,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.dto.RacingGameDto;
@@ -15,11 +16,20 @@ import racingcar.validator.input.NullNameValidator;
 
 class InputViewTest {
 
-    private final CountRangeValidator countRangeValidator = new CountRangeValidator();
-    private final NullNameValidator nameValidator = new NullNameValidator();
 
-    private final InputView inputView = new InputView(countRangeValidator,nameValidator);
-    private final InputStream originalIn = System.in;
+    private CountRangeValidator countRangeValidator;
+    private NullNameValidator nameValidator;
+    private InputView inputView;
+    private InputStream originalIn;
+
+    @BeforeEach
+    void setUp() {
+        countRangeValidator = new CountRangeValidator();
+        nameValidator = new NullNameValidator();
+        inputView = new InputView(countRangeValidator,nameValidator);
+        originalIn = System.in;
+
+    }
 
     @AfterEach
     void restoreSystemIn() {
