@@ -15,12 +15,13 @@ class ParticipantGeneraterTest {
 
     private ParticipantGenerater generater;
     private List<NameValidator> nameValidators;
+
     @BeforeEach
-    void setUp(){
+    void setUp() {
         NameLengthValidator nameLengthValidator = new NameLengthValidator();
         NullNameValidator nullNameValidator = new NullNameValidator();
         nameValidators = List.of(nameLengthValidator, nullNameValidator);
-         generater = new ParticipantGenerater(nameValidators);
+        generater = new ParticipantGenerater(nameValidators);
     }
 
 
@@ -72,7 +73,7 @@ class ParticipantGeneraterTest {
 
     @Test
     @DisplayName("5자가 넘는 이름이 있으면 예외가 발생한다.")
-    void 이름길이가_5자_넘는_참여자_생성(){
+    void 이름길이가_5자_넘는_참여자_생성() {
         // given
         String input = "pobi,longName,jun";
 

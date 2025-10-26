@@ -42,7 +42,6 @@ class OutputViewTest {
 
         List<Participant> participants = List.of(pobi, KTY);
 
-
         // when
         outputView.printProcess(RacingGameProcessDto.from(participants));
 

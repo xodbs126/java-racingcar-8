@@ -26,7 +26,7 @@ class InputViewTest {
     void setUp() {
         countRangeValidator = new CountRangeValidator();
         nameValidator = new NullNameValidator();
-        inputView = new InputView(countRangeValidator,nameValidator);
+        inputView = new InputView(countRangeValidator, nameValidator);
         originalIn = System.in;
 
     }

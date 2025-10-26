@@ -1,6 +1,10 @@
 package racingcar.domain;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
+import static org.assertj.core.api.Assertions.assertThat;
+
 import camp.nextstep.edu.missionutils.test.NsTest;
+import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,11 +14,6 @@ import racingcar.role.RandomNumberRole;
 import racingcar.validator.name.NameLengthValidator;
 import racingcar.validator.name.NullNameValidator;
 import racingcar.view.OutputView;
-
-import java.util.List;
-
-import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
-import static org.assertj.core.api.Assertions.assertThat;
 
 
 class RacingGameTest extends NsTest {
@@ -33,18 +32,17 @@ class RacingGameTest extends NsTest {
         outputView = new OutputView();
         NameLengthValidator nameLengthValidator = new NameLengthValidator();
         NullNameValidator nullNameValidator = new NullNameValidator();
-        participantGenerater = new ParticipantGenerater(List.of(nameLengthValidator,nullNameValidator));
+        participantGenerater = new ParticipantGenerater(List.of(nameLengthValidator, nullNameValidator));
         randomNumberGenerator = new RandomNumberGenerator();
         RandomNumberRole randomNumberRole = new RandomNumberRole();
         gameRoles = List.of(randomNumberRole);
-        racingGame = new RacingGame(participantGenerater, randomNumberGenerator, outputView,gameRoles);
+        racingGame = new RacingGame(participantGenerater, randomNumberGenerator, outputView, gameRoles);
     }
 
     @Test
     @DisplayName("play() 메서드가 게임 진행")
     void 게임_정상_시나리오() {
         RacingGameDto dto = new RacingGameDto("pobi,jun", 2);
-
 
         // when
         assertRandomNumberInRangeTest(
