@@ -56,7 +56,15 @@
 ---
 ## 예외처리
 - [x] 참여자의 이름이 5자를 초과할 경우 `IllegalArgumentException` 발생
+- [x] 게임 횟수가 음수일 경우 `IllegalArgumentException` 발생
+- [x] 참여자 이름이 비어있을 경우 `IllegalArgumentException` 발생
+- [x] 게임 횟수가 양수가 아닌 경우 `IllegalArgumentException` 발생
+- [x] 게임 횟수에 숫자가 아닌 값을 입력할 경우 `IllegalArgumentException` 발생
 
 ---
 ## 개선점
+- [x] GameRole을 통한 게임 규칙 추상화
+- [x] Validator 클래스를 통한 입력 값 검증 로직 분리
+  - [x] CountValidator 클래스 구현
+  - [x] NameValidator 클래스 구현
 
